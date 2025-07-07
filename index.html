@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Qirui Chen</title>
+  
+  <meta name="author" content="Qirui Chen">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <!-- <link rel="icon" type="image/png" href="images/sjtulogored.png"> -->
+  
+  <style>
+    .paper-title {
+      color: #000000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    
+    .paper-authors {
+      font-size: 15px;
+      color: #888;
+    }
+    
+    .paper-authors strong {
+      font-size: 15px;
+      color: #000;
+    }
+    
+    .paper-venue {
+      font-style: italic;
+      font-family: 'Noto Serif', Georgia, serif;
+      font-size: 14px;
+      margin-top: 1px;
+      margin-bottom: -2px;
+      color: #000000;
+    }
+    
+    .paper-links a {
+      color: #0063c6;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    
+    .paper-links a:hover {
+      text-decoration: underline;
+    }
+    
+    .paper-item {
+      margin-bottom: 16px;
+      line-height: 1.x;
+    }
+    
+    .paper-item.hidden {
+      display: none;
+    }
+    
+    .section-toggle {
+      cursor: pointer;
+      color: #0060c1;
+      text-decoration: underline;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+    
+    .section-toggle:hover {
+      color: #004499;
+    }
+  </style>
+</head>
+
+<body>
+  <table style="width:100%;max-width:750px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <tr style="padding:0px">
+      <td style="padding:0px">
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr style="padding:0px">
+            <td style="padding:2.5%;width:65%;vertical-align:middle">
+              <p style="text-align:center;margin-bottom:40px;">
+                <name>Qirui Chen &nbsp&nbsp 陈启瑞 </name>
+              </p>
+              <p>
+                I am currently a 2nd-year master's student at Shanghai Jiao Tong University (SJTU), advised by <a href="https://weidixie.github.io/">Prof. Weidi Xie</a>. 
+                Previously, I obtained my Bachelor's Degree in Artificial Intelligence at SJTU in June 2023.   
+              </p>
+              <p>
+                My research interests lie in multi-modal understanding and embodied AI. Feel free to contact me.
+              </p>
+              <p style="text-align:center">
+                <a href="https://scholar.google.com/citations?user=dHO8iH0AAAAJ">Google Scholar</a> &nbsp/&nbsp
+                <a href="https://github.com/qirui-chen">GitHub</a> &nbsp/&nbsp
+                <a href="mailto:chen_qirui@sjtu.edu.cn">Email</a>
+              </p>
+            </td>
+            <!-- <td style="padding:2.5%;width:40%;max-width:40%">
+                <a href="assets/images/me.jpg">
+                    <div style="width:80%;max-width:80%;margin:0 auto;position:relative;">
+                        <img 
+                            style="width:100%; 
+                                   border-radius: 50%; 
+                                   display: block;"
+                            alt="profile photo" 
+                            src="assets/images/me.jpg" 
+                            class="hoverZoomLink">
+                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;box-shadow:inset 0 0 15px rgba(210, 210, 210, 0.5);pointer-events:none;"></div>
+                    </div>
+                </a>
+            </td> -->
+          </tr>
+        </tbody></table>
+        
+        <!-- Publications Section -->
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:35px 20px 5px 20px;width:100%;vertical-align:middle">
+              <heading>Publications</heading>
+              <span class="section-toggle" onclick="togglePublications()" id="toggle-button"></span>
+              <br>
+              (* indicates equal contributions; † indicates correspondence.)
+            </td>
+          </tr>
+        </tbody></table>
+        
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:5px 20px 5px 20px;width:100%;vertical-align:middle">
+              
+              <!-- Publications Container -->
+              <div id="publications-container">
+                <!-- Papers will be dynamically inserted here -->
+              </div>
+              
+            </td>
+          </tr>
+        </tbody></table>
+
+        <script>
+            const INITIAL_VIEW = 'all';
+            
+            const publications = [
+            {
+                title: "Object-centric Video Question Answering with Visual Grounding and Referring",
+                authors: "Haochen Wang*, <strong>Qirui Chen*</strong>, Cilin Yan, Jiayin Cai, Xiaolong Jiang, Yao Hu, Weidi Xie†, Stratis Gavves",
+                venue: "ICCV, 2025",
+                links: [],
+                selected: true
+            },
+            {
+                title: "Learning Streaming Video Representation via Multitask Training",
+                authors: "Yibin Yan*, Jilan Xu*, Shangzhe Di, Yikun Liu, Yudi Shi, <strong>Qirui Chen</strong>, Zeqian Li, Yifei Huang, Weidi Xie",
+                venue: "ICCV, 2025",
+                links: [
+                { text: "Paper", url: "https://arxiv.org/pdf/2504.20041?" },
+                { text: "Project Page", url: "https://go2heart.github.io/streamformer/" },
+                { text: "Code", url: "https://github.com/go2heart/streamformer" }
+                ],
+                selected: false
+            },
+            {
+                title: "Enhancing Video-LLM Reasoning via Agent-of-Thoughts Distillation",
+                authors: "Yudi Shi, Shangzhe Di, <strong>Qirui Chen</strong>, Weidi Xie",
+                venue: "CVPR, 2025",
+                links: [
+                { text: "Paper", url: "https://arxiv.org/pdf/2412.01694" },
+                { text: "Project Page", url: "https://zhengrongz.github.io/AoTD/" },
+                { text: "Code", url: "https://github.com/zhengrongz/AoTD" }
+                ],
+                selected: false
+            },
+            {
+                title: "Grounded Multi-Hop VideoQA in Long-Form Egocentric Videos",
+                authors: "<strong>Qirui Chen</strong>, Shangzhe Di, Weidi Xie",
+                venue: "AAAI, 2025",
+                links: [
+                { text: "Paper", url: "https://arxiv.org/abs/2408.14469" },
+                { text: "Project Page", url: "https://qirui-chen.github.io/MultiHop-EgoQA" },
+                { text: "Code", url: "https://github.com/qirui-chen/MultiHop-EgoQA" }
+                ],
+                selected: true
+            },
+            {
+                title: "Multi-Sentence Grounding for Long-term Instructional Video",
+                authors: "Zeqian Li*, <strong>Qirui Chen*</strong>, Tengda Han, Ya Zhang, Yanfeng Wang, Weidi Xie",
+                venue: "ECCV, 2024",
+                links: [
+                { text: "Paper", url: "https://arxiv.org/abs/2312.14055" },
+                { text: "Project Page", url: "https://lzq5.github.io/Video-Text-Alignment/" },
+                { text: "Code", url: "https://github.com/Lzq5/Video-Text-Alignment" }
+                ],
+                selected: true
+            },
+            {
+                title: "Defining and Quantifying the Emergence of Sparse Concepts in DNNs",
+                authors: "Jie Ren*, Mingjie Li*, <strong>Qirui Chen</strong>, Huiqi Deng, Quanshi Zhang",
+                venue: "CVPR, 2023",
+                links: [
+                { text: "Paper", url: "https://openaccess.thecvf.com/content/CVPR2023/papers/Ren_Defining_and_Quantifying_the_Emergence_of_Sparse_Concepts_in_DNNs_CVPR_2023_paper.pdf" },
+                { text: "Code", url: "https://github.com/sjtu-xai-lab/aog" }
+                ],
+                selected: false
+            },
+            {
+                title: "Can We Faithfully Represent Absence States to Compute Shapley Values on a DNN?",
+                authors: "Jie Ren, Zhanpeng Zhou, <strong>Qirui Chen</strong>, Quanshi Zhang",
+                venue: "ICLR, 2023",
+                links: [
+                { text: "Paper", url: "https://openreview.net/pdf?id=YV8tP7bW6Kt" },
+                { text: "Code", url: "https://github.com/zzp1012/faithful-baseline-value" }
+                ],
+                selected: false
+            }
+            ];
+
+          let showingSelected = (INITIAL_VIEW === 'selected');
+
+          function createPaperElement(paper, index) {
+            const paperDiv = document.createElement('div');
+            paperDiv.className = 'paper-item';
+            paperDiv.setAttribute('data-selected', paper.selected);
+            paperDiv.setAttribute('data-index', index);
+            
+            const linksHtml = paper.links.map(link => 
+              `<a href="${link.url}">${link.text}</a>`
+            ).join(' / ');
+            
+            paperDiv.innerHTML = `
+              <div class="paper-title">${paper.title}</div>
+              <div class="paper-authors"><span style="color: #888;">${paper.authors}</span></div>
+              <div class="paper-venue">${paper.venue}</div>
+              <div class="paper-links">${linksHtml}</div>
+            `;
+            
+            return paperDiv;
+          }
+
+          function renderPublications() {
+            const container = document.getElementById('publications-container');
+            const toggleButton = document.getElementById('toggle-button');
+            
+            container.innerHTML = '';
+            
+            publications.forEach((paper, index) => {
+              const paperElement = createPaperElement(paper, index);
+              
+              // Show/hide based on current mode
+              if (showingSelected && !paper.selected) {
+                paperElement.classList.add('hidden');
+              }
+              
+              container.appendChild(paperElement);
+            });
+            
+            toggleButton.textContent = showingSelected ? '(show all)' : '(show selected)';
+          }
+
+          function togglePublications() {
+            const toggleButton = document.getElementById('toggle-button');
+            const paperItems = document.querySelectorAll('.paper-item');
+            
+            showingSelected = !showingSelected;
+            
+            if (showingSelected) {
+              // Show only selected publications
+              paperItems.forEach(item => {
+                const isSelected = item.getAttribute('data-selected') === 'true';
+                if (isSelected) {
+                  item.classList.remove('hidden');
+                } else {
+                  item.classList.add('hidden');
+                }
+              });
+              toggleButton.textContent = '(show all)';
+            } else {
+              // Show all publications
+              paperItems.forEach(item => {
+                item.classList.remove('hidden');
+              });
+              toggleButton.textContent = '(show selected)';
+            }
+          }
+
+          // Initialize publications on page load
+          document.addEventListener('DOMContentLoaded', function() {
+            renderPublications();
+          });
+        </script>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:35px 20px 5px 20px;width:100%;vertical-align:middle">
+                <heading>Awards</heading>
+              </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <tbody>
+              <tr>
+                <td style="padding:15px 20px 5px 20px;width:100%;vertical-align:middle">
+                  <p style="margin-top:0;margin-bottom:0.3em;line-height:1.5">
+                    <strong>[2024]</strong> First-Class Graduate Academic Scholarship
+                  </p>
+                  <p style="margin-top:0;margin-bottom:0.3em;line-height:1.5">
+                    <strong>[2023]</strong> Zhiyuan Honors Bachelor's Degree
+                  </p>
+                  <p style="margin-top:0;margin-bottom:0.3em;line-height:1.5">
+                    <strong>[2020 - 2023]</strong> ABB Jürgen Dormann Scholarship
+                  </p>
+                  <p style="margin-top:0;margin-bottom:0;line-height:1.5">
+                    <strong>[2019 - 2023]</strong> Zhiyuan Honor Scholarship
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:35px 20px 5px 20px;width:100%;vertical-align:middle">
+              <heading>Internships</heading>
+            </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:5px 20px 5px 20px;width:100%;vertical-align:middle">
+                <p>
+                  <strong>[2024 Dec. - 2025 Apr.]</strong> </b>Internship in <a href="https://www.xiaohongshu.com/">Xiaohongshu</a> (RedNote) Inc.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:35px 20px 5px 20px;width:100%;vertical-align:middle">
+              <heading>Services</heading>
+            </td>
+            </tr>
+          </tbody></table>
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:5px 20px 5px 20px;width:100%;vertical-align:middle">
+                <p>
+                  <strong>[Conference Reviewer]</strong> CVPR ('24-25), AAAI '25, ICLR '25
+                </p>
+                <p>
+                  <strong>[Teaching Assistant]</strong> ICE9212-034 (23 Fall, 24 Fall), SJTU
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+
+
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:35px 20px 0px 20px;width:100%;vertical-align:middle">
+              <heading>Others</heading>
+            </td>
+            </tr>
+            <tr>
+                <td style="padding:5px 20px 5px 20px;width:100%;vertical-align:middle">
+                    <p>
+                        I enjoy reading PPE-related books, watching movies, playing sports (badminton & swimming), and traveling. If you share similar interests, feel free to reach out!
+                    </p>
+                </td>
+            </tr>
+        </tbody></table>
+          
+        
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr>
+            <td style="padding:0px">
+              <br>
+              <p style="text-align:right;font-size:small;">
+                Thanks <a href="https://jonbarron.info/">Jon Barron</a> for this template.
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+      </td>
+    </tr>
+  </table>
+</body>
+
+</html>
