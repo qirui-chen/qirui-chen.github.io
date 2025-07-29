@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 a {
-  color: #055aae;
+  color: #0561bd;
   text-decoration: none;
 }
 
@@ -12,14 +13,17 @@ a:hover {
   text-decoration: none;
 }
 
-body,
 th,
 td,
 tr,
-p,
-a {
+p{
   font-family: 'EB Garamond', Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
   font-size: 16px;
+}
+
+p, a {
+  font-family: 'PT Serif', serif;
+  font-size: 15px;
 }
 
 em, i, cite, dfn, var {
@@ -36,12 +40,6 @@ strong {
 heading {
   font-family: 'EB Garamond', Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
   font-size: 24px;
-  font-weight: 600;
-}
-
-papertitle {
-  font-family: 'EB Garamond', Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
-  font-size: 15px;
   font-weight: 600;
 }
 
