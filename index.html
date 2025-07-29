@@ -30,16 +30,17 @@
     .paper-venue {
       font-style: italic;
       font-family: 'Noto Serif', Georgia, serif;
-      font-size: 14px;
+      font-size: 13px;
       margin-top: 1px;
       margin-bottom: -2px;
       color: #000000;
     }
     
     .paper-links a {
+      font-family: 'Noto Serif', Georgia, serif;
       color: #0063c6;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 13px;
     }
     
     .paper-links a:hover {
@@ -84,12 +85,13 @@
                 Previously, I obtained my Bachelor's Degree in Artificial Intelligence at SJTU in June 2023.   
               </p>
               <p>
-                My research interests lie in multi-modal understanding and embodied AI. Feel free to contact me.
+                My research interests lie in multi-modal understanding and embodied AI. Also feel free to contact me.
               </p>
+
               <p style="text-align:center">
-                <a href="https://scholar.google.com/citations?user=dHO8iH0AAAAJ">Google Scholar</a> &nbsp/&nbsp
+                <a href="mailto:chen_qirui@sjtu.edu.cn">Email</a> &nbsp/&nbsp
                 <a href="https://github.com/qirui-chen">GitHub</a> &nbsp/&nbsp
-                <a href="mailto:chen_qirui@sjtu.edu.cn">Email</a>
+                <a href="https://scholar.google.com/citations?user=dHO8iH0AAAAJ">Google Scholar</a>
               </p>
             </td>
             <!-- <td style="padding:2.5%;width:40%;max-width:40%">
@@ -142,13 +144,17 @@
                 title: "Object-centric Video Question Answering with Visual Grounding and Referring",
                 authors: "Haochen Wang*, <strong>Qirui Chen*</strong>, Cilin Yan, Jiayin Cai, Xiaolong Jiang, Yao Hu, Weidi Xie†, Stratis Gavves",
                 venue: "ICCV, 2025",
-                links: [],
+                links: [
+                { text: "Paper", url: "https://arxiv.org/abs/2507.19599" },
+                { text: "Project Page", url: "https://qirui-chen.github.io/RGA3-release" },
+                { text: "Code", url: "https://github.com/qirui-chen/RGA3-release" }
+                ],
                 selected: true
             },
             {
                 title: "Learning Streaming Video Representation via Multitask Training",
                 authors: "Yibin Yan*, Jilan Xu*, Shangzhe Di, Yikun Liu, Yudi Shi, <strong>Qirui Chen</strong>, Zeqian Li, Yifei Huang, Weidi Xie",
-                venue: "ICCV, 2025",
+                venue: "ICCV, 2025 <span style='font-style:normal'>(Oral)</span>",
                 links: [
                 { text: "Paper", url: "https://arxiv.org/pdf/2504.20041?" },
                 { text: "Project Page", url: "https://go2heart.github.io/streamformer/" },
@@ -226,8 +232,8 @@
             paperDiv.innerHTML = `
               <div class="paper-title">${paper.title}</div>
               <div class="paper-authors"><span style="color: #888;">${paper.authors}</span></div>
-              <div class="paper-venue">${paper.venue}</div>
               <div class="paper-links">${linksHtml}</div>
+              <div class="paper-venue">${paper.venue}</div>
             `;
             
             return paperDiv;
