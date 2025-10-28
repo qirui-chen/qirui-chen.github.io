@@ -14,23 +14,24 @@
       color: #000000;
       text-decoration: none;
       font-weight: bold;
-      font-size: 17px;
+      font-size: 16.5px;
+      margin-bottom: 1px;
     }
     
     .paper-authors {
-      font-size: 16px;
+      font-size: 15px;
       color: #888;
     }
     
     .paper-authors strong {
-      font-size: 15.5px;
+      font-size: 15px;
       color: #000;
     }
     
     .paper-venue {
       font-family: 'Noto Serif', Georgia, serif;
-      font-size: 14px;
-      margin-top: 2px;
+      font-size: 13px;
+      margin-top: 1px;
       color: #000000;
     }
     
@@ -38,7 +39,7 @@
       font-family: 'Noto Serif', Georgia, serif;
       color: #035db8;
       text-decoration: none;
-      font-size: 13.5px;
+      font-size: 12.5px;
     }
     
     .paper-links a:hover {
@@ -66,11 +67,42 @@
     .section-toggle:hover {
       color: #004499;
     }
+  
+    .topic-button {
+      font-family: 'Noto Serif', Georgia, serif;
+      font-size: 12.8px;
+      margin-right: 10px;
+      margin-bottom: 8px;
+      padding: 5px 10px;
+      background-color: #f5f5f5;
+      border: 1px solid #ebebeb;
+      border-radius: 4px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .topic-button:hover {
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+    
+    .topic-button.active {
+      background-color: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+    
+    #topic-filter {
+      margin-bottom: 5px;
+    }
+    
+    #toggle-container {
+      margin-top: 20px;
+    }
   </style>
 </head>
 
 <body>
-  <table style="width:100%;max-width:750px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
     <tr style="padding:0px">
       <td style="padding:0px">
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -80,7 +112,7 @@
                 <name>Qirui Chen &nbsp&nbsp 陈启瑞 </name>
               </p>
               <p>
-                I am currently a 2nd-year master's student at Shanghai Jiao Tong University (SJTU), advised by <a href="https://weidixie.github.io/">Prof. Weidi Xie</a>. 
+                I am currently a 3rd-year master's student at Shanghai Jiao Tong University (SJTU), advised by <a href="https://weidixie.github.io/">Prof. Weidi Xie</a>. 
                 Previously, I obtained my Bachelor's Degree in Artificial Intelligence at SJTU in June 2023.   
               </p>
               <p>
@@ -93,20 +125,16 @@
                 <a href="https://scholar.google.com/citations?user=dHO8iH0AAAAJ">Google Scholar</a>
               </p>
             </td>
-            <!-- <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="assets/images/me.jpg">
-                    <div style="width:80%;max-width:80%;margin:0 auto;position:relative;">
-                        <img 
-                            style="width:100%; 
-                                   border-radius: 50%; 
-                                   display: block;"
-                            alt="profile photo" 
-                            src="assets/images/me.jpg" 
-                            class="hoverZoomLink">
-                        <div style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:50%;box-shadow:inset 0 0 15px rgba(210, 210, 210, 0.5);pointer-events:none;"></div>
-                    </div>
-                </a>
-            </td> -->
+
+          <td style="padding:3%;width:30%;max-width:45%;padding-top:40px">
+            <a href="assets/images/me.jpg">
+              <img style="width:100%;max-width:100%;border-radius:15px;box-shadow:0 4px 8px rgba(0,0,0,0.1);" 
+                  alt="profile photo" 
+                  src="assets/images/me.jpg" 
+                  class="hoverZoomLink">
+            </a>
+          </td>
+          
           </tr>
         </tbody></table>
         
@@ -125,6 +153,9 @@
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
             <td style="padding:5px 20px 5px 20px;width:100%;vertical-align:middle">
+              
+              <!-- Topic Filter Container -->
+              <div id="topic-filter"></div>
               
               <!-- Publications Container -->
               <div id="publications-container">
@@ -148,7 +179,8 @@
                 { text: "Project Page", url: "https://qirui-chen.github.io/RGA3-release" },
                 { text: "Code", url: "https://github.com/qirui-chen/RGA3-release" }
                 ],
-                selected: true
+                selected: true,
+                topic: "Video Spatial-Temporal Understanding"
             },
             {
                 title: "Learning Streaming Video Representation via Multitask Training",
@@ -159,7 +191,8 @@
                 { text: "Project Page", url: "https://go2heart.github.io/streamformer/" },
                 { text: "Code", url: "https://github.com/go2heart/streamformer" }
                 ],
-                selected: false
+                selected: false,
+                topic: "Video Representation Learning"
             },
             {
                 title: "Enhancing Video-LLM Reasoning via Agent-of-Thoughts Distillation",
@@ -170,7 +203,8 @@
                 { text: "Project Page", url: "https://zhengrongz.github.io/AoTD/" },
                 { text: "Code", url: "https://github.com/zhengrongz/AoTD" }
                 ],
-                selected: false
+                selected: false,
+                topic: "Video Agents"
             },
             {
                 title: "Grounded Multi-Hop VideoQA in Long-Form Egocentric Videos",
@@ -181,7 +215,8 @@
                 { text: "Project Page", url: "https://qirui-chen.github.io/MultiHop-EgoQA" },
                 { text: "Code", url: "https://github.com/qirui-chen/MultiHop-EgoQA" }
                 ],
-                selected: true
+                selected: true,
+                topic: "Video Spatial-Temporal Understanding"
             },
             {
                 title: "Multi-Sentence Grounding for Long-term Instructional Video",
@@ -192,7 +227,8 @@
                 { text: "Project Page", url: "https://lzq5.github.io/Video-Text-Alignment/" },
                 { text: "Code", url: "https://github.com/Lzq5/Video-Text-Alignment" }
                 ],
-                selected: true
+                selected: true,
+                topic: "Video Spatial-Temporal Understanding"
             },
             {
                 title: "Defining and Quantifying the Emergence of Sparse Concepts in DNNs",
@@ -202,7 +238,8 @@
                 { text: "Paper", url: "https://openaccess.thecvf.com/content/CVPR2023/papers/Ren_Defining_and_Quantifying_the_Emergence_of_Sparse_Concepts_in_DNNs_CVPR_2023_paper.pdf" },
                 { text: "Code", url: "https://github.com/sjtu-xai-lab/aog" }
                 ],
-                selected: false
+                selected: false,
+                topic: "Others"
             },
             {
                 title: "Can We Faithfully Represent Absence States to Compute Shapley Values on a DNN?",
@@ -212,82 +249,175 @@
                 { text: "Paper", url: "https://openreview.net/pdf?id=YV8tP7bW6Kt" },
                 { text: "Code", url: "https://github.com/zzp1012/faithful-baseline-value" }
                 ],
-                selected: false
+                selected: false,
+                topic: "Others"
             }
             ];
 
-          let showingSelected = (INITIAL_VIEW === 'selected');
+            let showingSelected = (INITIAL_VIEW === 'selected');
+            let currentTopicFilter = 'all';
 
-          function createPaperElement(paper, index) {
-            const paperDiv = document.createElement('div');
-            paperDiv.className = 'paper-item';
-            paperDiv.setAttribute('data-selected', paper.selected);
-            paperDiv.setAttribute('data-index', index);
-            
-            const linksHtml = paper.links.map(link => 
-              `<a href="${link.url}">${link.text}</a>`
-            ).join(' / ');
-            
-            paperDiv.innerHTML = `
-              <div class="paper-title">${paper.title}</div>
-              <div class="paper-authors"><span style="color: #888;">${paper.authors}</span></div>
-              <div class="paper-links">${linksHtml}</div>
-              <div class="paper-venue">${paper.venue}</div>
-            `;
-            
-            return paperDiv;
-          }
-
-          function renderPublications() {
-            const container = document.getElementById('publications-container');
-            const toggleButton = document.getElementById('toggle-button');
-            
-            container.innerHTML = '';
-            
-            publications.forEach((paper, index) => {
-              const paperElement = createPaperElement(paper, index);
-              
-              // Show/hide based on current mode
-              if (showingSelected && !paper.selected) {
-                paperElement.classList.add('hidden');
-              }
-              
-              container.appendChild(paperElement);
-            });
-            
-            toggleButton.textContent = showingSelected ? '(show all)' : '(show selected)';
-          }
-
-          function togglePublications() {
-            const toggleButton = document.getElementById('toggle-button');
-            const paperItems = document.querySelectorAll('.paper-item');
-            
-            showingSelected = !showingSelected;
-            
-            if (showingSelected) {
-              // Show only selected publications
-              paperItems.forEach(item => {
-                const isSelected = item.getAttribute('data-selected') === 'true';
-                if (isSelected) {
-                  item.classList.remove('hidden');
-                } else {
-                  item.classList.add('hidden');
+            function getUniqueTopics() {
+                const topicCounts = {};
+                publications.forEach(paper => {
+                    if (!showingSelected || paper.selected) {
+                        const topic = paper.topic;
+                        topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+                    }
+                });
+                
+                // Separate "Others" from other topics
+                const otherTopics = [];
+                const regularTopics = [];
+                
+                for (const topic in topicCounts) {
+                    if (topic === "Others") {
+                        otherTopics.push({ topic, count: topicCounts[topic] });
+                    } else {
+                        regularTopics.push({ topic, count: topicCounts[topic] });
+                    }
                 }
-              });
-              toggleButton.textContent = '(show all)';
-            } else {
-              // Show all publications
-              paperItems.forEach(item => {
-                item.classList.remove('hidden');
-              });
-              toggleButton.textContent = '(show selected)';
+                
+                // Sort regular topics by count (descending)
+                regularTopics.sort((a, b) => b.count - a.count);
+                
+                // Combine arrays with "Others" at the end
+                const sortedTopics = [...regularTopics, ...otherTopics];
+                
+                return sortedTopics.map(item => item.topic);
             }
-          }
 
-          // Initialize publications on page load
-          document.addEventListener('DOMContentLoaded', function() {
-            renderPublications();
-          });
+            function createTopicFilter() {
+                const topics = getUniqueTopics();
+                const filterContainer = document.getElementById('topic-filter');
+                
+                // Create "All" option
+                const allOption = document.createElement('button');
+                allOption.textContent = 'All Topics';
+                allOption.className = 'topic-button';
+                allOption.dataset.topic = 'all';
+                allOption.addEventListener('click', () => filterByTopic('all'));
+                filterContainer.appendChild(allOption);
+                
+                // Create topic options
+                topics.forEach(topic => {
+                    const button = document.createElement('button');
+                    button.textContent = topic;
+                    button.className = 'topic-button';
+                    button.dataset.topic = topic;
+                    button.addEventListener('click', () => filterByTopic(topic));
+                    filterContainer.appendChild(button);
+                });
+            }
+
+            function filterByTopic(topic) {
+                currentTopicFilter = topic;
+                const topicButtons = document.querySelectorAll('.topic-button');
+                
+                // Update button styles
+                topicButtons.forEach(button => {
+                    if (button.dataset.topic === topic) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
+                
+                // Update visibility of papers
+                const paperItems = document.querySelectorAll('.paper-item');
+                paperItems.forEach(item => {
+                    const paperIndex = item.getAttribute('data-index');
+                    const paper = publications[paperIndex];
+                    
+                    const matchesTopic = (currentTopicFilter === 'all') || (paper.topic === currentTopicFilter);
+                    const matchesSelection = !showingSelected || paper.selected;
+                    
+                    if (matchesTopic && matchesSelection) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            }
+
+            function createPaperElement(paper, index) {
+                const paperDiv = document.createElement('div');
+                paperDiv.className = 'paper-item';
+                paperDiv.setAttribute('data-selected', paper.selected);
+                paperDiv.setAttribute('data-index', index);
+                paperDiv.setAttribute('data-topic', paper.topic);
+                
+                const linksHtml = paper.links.map(link => 
+                    `<a href="${link.url}">${link.text}</a>`
+                ).join(' / ');
+                
+                paperDiv.innerHTML = `
+                    <div class="paper-title">${paper.title}</div>
+                    <div class="paper-authors"><span style="color: #888;">${paper.authors}</span></div>
+                    <div class="paper-links">${linksHtml}</div>
+                    <div class="paper-venue">${paper.venue}</div>
+                `;
+                
+                return paperDiv;
+            }
+
+            function renderPublications() {
+                const container = document.getElementById('publications-container');
+                const toggleButton = document.getElementById('toggle-button');
+                
+                container.innerHTML = '';
+                
+                publications.forEach((paper, index) => {
+                    const paperElement = createPaperElement(paper, index);
+                    
+                    // Show/hide based on current mode
+                    const matchesTopic = (currentTopicFilter === 'all') || (paper.topic === currentTopicFilter);
+                    const matchesSelection = !showingSelected || paper.selected;
+                    
+                    if (!matchesTopic || !matchesSelection) {
+                        paperElement.classList.add('hidden');
+                    }
+                    
+                    container.appendChild(paperElement);
+                });
+                
+                toggleButton.textContent = showingSelected ? '(show all)' : '(show selected)';
+            }
+
+            function togglePublications() {
+                const toggleButton = document.getElementById('toggle-button');
+                const paperItems = document.querySelectorAll('.paper-item');
+                
+                showingSelected = !showingSelected;
+                
+                const filterContainer = document.getElementById('topic-filter');
+                filterContainer.innerHTML = '';
+                createTopicFilter();
+                
+                paperItems.forEach(item => {
+                    const paperIndex = item.getAttribute('data-index');
+                    const paper = publications[paperIndex];
+                    
+                    const matchesTopic = (currentTopicFilter === 'all') || (paper.topic === currentTopicFilter);
+                    const matchesSelection = !showingSelected || paper.selected;
+                    
+                    if (matchesTopic && matchesSelection) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+                
+                toggleButton.textContent = showingSelected ? '(show all)' : '(show selected)';
+                currentTopicFilter = 'all';
+                filterByTopic('all');
+            }
+
+            // Initialize on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                createTopicFilter();
+                renderPublications();
+            });
         </script>
 
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -377,7 +507,7 @@
             <td style="padding:0px">
               <br>
               <p style="text-align:right;font-size:14px;">
-                Thanks <a href="https://jonbarron.info/" style="font-size:13px;">Jon Barron</a> for this template.
+                Thanks <a href="https://jonbarron.info/" style="font-size:14px;">Jon Barron</a> for this template.
               </p>
             </td>
           </tr>
