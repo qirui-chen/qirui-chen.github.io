@@ -6,7 +6,7 @@
   <meta name="author" content="Qirui Chen">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Qirui Chen's academic homepage.">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260509h">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20260513b">
   <!-- <link rel="icon" type="image/png" href="images/sjtulogored.png"> -->
 </head>
 
@@ -23,7 +23,7 @@
           Previously, I obtained my Bachelor's Degree in Artificial Intelligence at SJTU in June 2023.
         </p>
         <p>
-          My research interests lie in mixed-modal modeling and embodied AI. Also feel free to contact me.
+          My research interests lie in mixed-modal models and embodied agents. Also feel free to contact me.
         </p>
         <nav class="profile-links" aria-label="Profile links">
           <a href="mailto:chen_qirui@sjtu.edu.cn">
@@ -140,7 +140,7 @@
                 { text: "Code", url: "https://github.com/sjtu-xai-lab/aog" }
                 ],
                 firstAuthor: false,
-                topic: "Others"
+                topic: "Explainability"
             },
             {
                 title: "Can We Faithfully Represent Absence States to Compute Shapley Values on a DNN?",
@@ -151,7 +151,7 @@
                 { text: "Code", url: "https://github.com/zzp1012/faithful-baseline-value" }
                 ],
                 firstAuthor: false,
-                topic: "Others"
+                topic: "Explainability"
             }
             ];
 
@@ -160,6 +160,7 @@
 
             function getUniqueTopics() {
                 const topicCounts = {};
+                const pinnedTopics = ["Explainability", "Others"];
                 publications.forEach(paper => {
                     if (!showingFirstAuthor || paper.firstAuthor) {
                         const topic = paper.topic;
@@ -167,13 +168,13 @@
                     }
                 });
                 
-                // Separate "Others" from other topics
-                const otherTopics = [];
+                // Keep secondary topics at the end in a stable order.
+                const pinnedTopicItems = [];
                 const regularTopics = [];
                 
                 for (const topic in topicCounts) {
-                    if (topic === "Others") {
-                        otherTopics.push({ topic, count: topicCounts[topic] });
+                    if (pinnedTopics.includes(topic)) {
+                        pinnedTopicItems.push({ topic, count: topicCounts[topic] });
                     } else {
                         regularTopics.push({ topic, count: topicCounts[topic] });
                     }
@@ -182,8 +183,8 @@
                 // Sort regular topics by count (descending)
                 regularTopics.sort((a, b) => b.count - a.count);
                 
-                // Combine arrays with "Others" at the end
-                const sortedTopics = [...regularTopics, ...otherTopics];
+                pinnedTopicItems.sort((a, b) => pinnedTopics.indexOf(a.topic) - pinnedTopics.indexOf(b.topic));
+                const sortedTopics = [...regularTopics, ...pinnedTopicItems];
                 
                 return sortedTopics.map(item => item.topic);
             }
@@ -353,7 +354,7 @@
     <section class="content-section" aria-labelledby="services-heading">
       <h2 id="services-heading">Services</h2>
       <div class="stacked-list">
-        <p><strong>[Reviewer]</strong> IJCV, CVPR'(24-26), ECCV'26, AAAI'25, ICLR'(25-26)</p>
+        <p><strong>[Reviewer]</strong> IJCV, CVPR'(24-26), ECCV'26, NeurIPS'26, AAAI'25, ICLR'(25-26)</p>
         <p><strong>[Teaching Assistant]</strong> ICE9212-034 (23 Fall, 24 Fall), SJTU</p>
       </div>
     </section>

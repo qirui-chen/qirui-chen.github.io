@@ -5,13 +5,14 @@
 :root {
   --page: #ffffff;
   --surface: #ffffff;
-  --surface-soft: #f3f8f7;
+  --surface-soft: #f3f7fc;
   --ink: #19222f;
   --muted: #627084;
   --line: #dce5e5;
-  --accent: #0c6f7c;
-  --accent-deep: #084f5a;
-  --accent-muted: #285f55;
+  --accent: #256fb8;
+  --accent-deep: #164a82;
+  --accent-bright: #087feeef;
+  --accent-muted: #245b8f;
   --shadow: 0 18px 45px rgba(20, 33, 45, 0.08);
 }
 
@@ -60,7 +61,7 @@ a:hover {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid rgba(12, 111, 124, 0.24);
+  outline: 3px solid rgba(37, 111, 184, 0.24);
   outline-offset: 3px;
 }
 
@@ -146,7 +147,7 @@ h2 {
   padding: 5px 12px;
   color: var(--accent-deep);
   background: var(--surface-soft);
-  border: 1px solid rgba(12, 111, 124, 0.16);
+  border: 1px solid rgba(37, 111, 184, 0.16);
   border-radius: 5px;
   font-family: 'Noto Serif', Georgia, serif;
   font-size: 14px;
@@ -165,8 +166,8 @@ h2 {
 .profile-links a:hover,
 .paper-links a:hover {
   color: var(--surface);
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
 }
 
 .profile-photo {
@@ -221,8 +222,8 @@ h2 {
 
 .section-toggle:hover {
   color: var(--surface);
-  background: var(--accent-deep);
-  border-color: var(--accent-deep);
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
 }
 
 .topic-filter {
@@ -247,14 +248,14 @@ h2 {
 
 .topic-button:hover {
   color: var(--accent-deep);
-  border-color: rgba(12, 111, 124, 0.34);
+  border-color: rgba(37, 111, 184, 0.34);
   transform: translateY(-1px);
 }
 
 .topic-button.active {
   color: var(--surface);
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
 }
 
 .publications-list {
@@ -353,7 +354,7 @@ h2 {
 
 .timeline-list li {
   padding-left: 18px;
-  border-left: 2px solid rgba(12, 111, 124, 0.22);
+  border-left: 2px solid rgba(37, 111, 184, 0.22);
 }
 
 .page-footer {
@@ -390,14 +391,15 @@ span.highlight {
   }
 
   .profile-hero {
-    grid-template-columns: 1fr;
-    gap: 26px;
+    grid-template-columns: minmax(0, 1fr) minmax(104px, 150px);
+    gap: 18px;
+    align-items: start;
     padding-bottom: 32px;
   }
 
   .profile-photo {
-    justify-self: start;
-    width: min(260px, 72vw);
+    justify-self: end;
+    width: min(150px, 42vw);
   }
 
   h1 {
@@ -435,6 +437,10 @@ span.highlight {
     font-size: 34px;
   }
 
+  .profile-hero {
+    grid-template-columns: 1fr;
+  }
+
   .cn-name {
     display: block;
     margin-top: 4px;
@@ -454,6 +460,11 @@ span.highlight {
   .section-toggle {
     width: 100%;
     justify-content: center;
+  }
+
+  .profile-photo {
+    justify-self: start;
+    width: min(128px, 38vw);
   }
 
   .paper-title {
